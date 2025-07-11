@@ -8,7 +8,6 @@ AUTHOR: Priyanka Rajeev Hichkad
 > A practical machine learning project to detect fraudulent credit card transactions  
 > *“When data speaks, fraud gets caught.”*
 
----
 
 ## Project Overview:
 
@@ -16,7 +15,6 @@ This repository contains my end-to-end pipeline for detecting **credit card frau
 
 [CODE](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Credit_Card_Fraud_Detection.ipynb)
 
----
 
 ## Tech Stack-
 
@@ -28,7 +26,6 @@ This repository contains my end-to-end pipeline for detecting **credit card frau
 - Data Visualisation , Exploratory Data Analysis , Data Science application in Finance , Machine Learning
 - Jupyter Notebook
 
----
 
 ## Why This Project?
 
@@ -39,16 +36,14 @@ Credit card fraud is a growing threat, impacting millions globally. The ability 
 - Explore model tuning and interpretability
 - Strengthen data preprocessing and EDA skills
 
----
 
 ## Dataset Information:
 
 - 📁 **Source**: [Kaggle – Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 - 📌 **Timeframe**: Transactions from two days in September 2013
 - 🧮 **Records**: 284,807 transactions; 492 are fraudulent (≈ 0.172%)
-- 🔐 **Features**: 30 total — `Time`, `Amount`, `V1` to `V28` (PCA-transformed), `Class` (Target)
+- 🔐 **Features**: 30 total — `Time`, `Amount`, `V1` to `V28`, `Class` (Target)
 
----
 
 ## Steps Followed in the Project-
 
@@ -56,15 +51,20 @@ Credit card fraud is a growing threat, impacting millions globally. The ability 
 - Studied distributions of `Amount`, `Time`, and PCA components.
 - Compared feature distributions between fraud and non-fraud classes.
 - Visualized class imbalance and transaction trends.
+![Imbalanced Dataset Count](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Imbalanced%20Dataset%20Count.png)
+![Correlation Matrix](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Correlation%20Matrix.png)
 
 ### 2. Data Preprocessing:
-- **Scaled** the `Amount` and `Time` features using `StandardScaler` and `MinMaxScaler`.
+- **Scaled** the `Amount` and `Time` features using `RobustScaler`.
 - **Removed outliers** based on IQR method to ensure model stability.
+- **Sampling** the data with `RandomUnderSampling` so that significance of data would be more realistic if there was no synthetic dataset.
 - **Handled class imbalance** by focusing on recall and precision-recall AUC instead of overall accuracy.
+![Reduction of outliers](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Reduction%20of%20Outliers.png)
 
 ### 3. Dimensionality Reduction:
 - Visualized data using **PCA, T-SNE and TruncatedSVD** to understand cluster separation.
 - Ensured interpretability while retaining data integrity.
+![Dimentionality Reduction](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Dimentionality%20Reduction.png)
 
 ### 4. Model Building:
 Applied and compared the performance of:
@@ -73,10 +73,12 @@ Applied and compared the performance of:
 - **Support Vector Machines (SVM)**
 
 Each model was trained and validated using stratified train-test split to preserve class ratios.
+![Cross Validation Score](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Cross%20Validation%20Scores.png)
 
 ### 5. Hyperparameter Tuning:
 - Utilized `GridSearchCV` and `Optuna` for optimizing hyperparameters.
 - Tuned parameters such as `C`, `kernel`, `n_neighbors`, etc.
+![Classification Report](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Classification%20Report.png)
 
 ### 6. Model Evaluation:
 - Evaluation metrics included:
@@ -84,13 +86,14 @@ Each model was trained and validated using stratified train-test split to preser
   - **Confusion Matrix**
   - **ROC Curve**
   - **Precision-Recall AUC (AUPRC)**
+![ROC Curve](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/ROC%20Curve.png)
 
----
 
 ## Key Results-
 
+After careful considerations, I decided to use Logistic Regression model for my project. Here's the Final Result:
+![Final Report](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Final%20Report.png)
 
----
 
 ## Challenges Faced-
 
@@ -98,16 +101,14 @@ Each model was trained and validated using stratified train-test split to preser
 - **Outlier Sensitivity**: Required careful preprocessing to prevent misclassification.
 - **PCA Transformed Features**: Limited feature interpretability, making EDA less intuitive.
 
----
 
 ## Future Improvements-
 
 - Implement ensemble models like **Random Forest** or **XGBoost**
-- Try **SMOTE** or **undersampling techniques** for resampling
-- Develop an interactive dashboard using **Streamlit** or **Dash**
-- Simulate real-time scoring with live transaction data
+- Try **SMOTE** or **oversampling techniques** for resampling
+- Develop an interactive dashboard.
+- Simulate real-time scoring with live transaction data with **API Integretion**
 
----
 
 ## Final Note:
 
@@ -119,4 +120,3 @@ I'm open to suggestions, improvements, and feedback!
 3. Commit your changes: `git commit -m "Add feature"`  
 4. Push and submit a Pull Request
 
-*Let’s use data science for good.* 
