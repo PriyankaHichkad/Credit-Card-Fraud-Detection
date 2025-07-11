@@ -52,7 +52,6 @@ Credit card fraud is a growing threat, impacting millions globally. The ability 
 - Compared feature distributions between fraud and non-fraud classes.
 - Visualized class imbalance and transaction trends.
 ![Imbalanced Dataset Count](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Imbalanced%20Dataset%20Count.png)
-![Correlation Matrix](https://github.com/PriyankaHichkad/Credit-Card-Fraud-Detection/blob/main/Images/Correlation%20Matrix.png)
 
 ### 2. Data Preprocessing:
 - **Scaled** the `Amount` and `Time` features using `RobustScaler`.
